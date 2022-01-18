@@ -8,7 +8,7 @@ function drawArt(ctx) {
 
   ctx.save();
   let time = new Date();
-  ctx.translate (12*time.getSeconds(), 12*time.getSeconds());
+  ctx.translate (time.getMilliseconds(), time.getMilliseconds());
   ctx.rotate(time.getSeconds() + 3);
   ctx.beginPath();
   ctx.moveTo(100, 50);
@@ -48,7 +48,12 @@ ctx.arc(100, 130, 30, 0, Math.PI * 2, false);
 ctx.stroke();
 ctx.restore();
 
-
+ctx.save();
+let timer = new Date();
+ctx.translate(timer.getMilliseconds(), 0)
+ctx.arc(150,150,60,0,Math.PI * 2, false);
+ctx.stroke();
+ctx.restore();
 
 }
 
