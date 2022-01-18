@@ -5,6 +5,11 @@ function initializeAnimation() {
 
 function drawArt(ctx) {
   // Draw triangle
+
+  ctx.save();
+  let time = new Date();
+  ctx.translate (12*time.getSeconds(), 12*time.getSeconds());
+  ctx.rotate(time.getSeconds() + 3);
   ctx.beginPath();
   ctx.moveTo(100, 50);
   ctx.lineTo(0, 200);
@@ -41,13 +46,9 @@ function drawArt(ctx) {
 ctx.beginPath();
 ctx.arc(100, 130, 30, 0, Math.PI * 2, false);
 ctx.stroke();
+ctx.restore();
 
-  //ctx.beginPath();
-  //ctx.moveTo(-100, -180);
-  //ctx.lineTo(140, 120);
-  //ctx.stroke();
 
-  //octx.fillRect(-160, 10, 100, 100);
 
 }
 
@@ -71,4 +72,12 @@ function draw() {
   window.requestAnimationFrame(draw);
 }
 
+function animate()
+{
+  requestAnimationFrame(animate);
+
+}
+
+
 initializeAnimation();
+animate();
